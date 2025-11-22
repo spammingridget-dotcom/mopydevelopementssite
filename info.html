@@ -1,102 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Mopy Developmentz™ — Info</title>
-<style>
-  :root{ --accent:#4f8cff; --accent-2:#1e66ff; --glass:rgba(255,255,255,0.06); }
-  html,body{height:100%;margin:0;background: radial-gradient(circle at 50% 20%, #0c1533, #050915); font-family:Inter, Arial, sans-serif; color:#fff; overflow:hidden; }
-  .nebula{ position:fixed; inset:0; z-index:0; pointer-events:none; mix-blend-mode:screen; background:
-    radial-gradient(700px 300px at 20% 10%, rgba(79,140,255,0.04), transparent 15%),
-    radial-gradient(500px 220px at 80% 70%, rgba(30,102,255,0.03), transparent 12%); }
-  .starsLayer{ position:fixed; inset:0; z-index:0; pointer-events:none; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mopy Developmentz™ — Info</title>
 
-  .infoWrap { position:relative; z-index:2; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:36px; }
-  .infoCard{ width:min(900px,94vw); background:var(--glass); border-radius:18px; padding:30px; box-shadow:0 12px 50px rgba(0,0,0,0.55); backdrop-filter:blur(10px); border:1px solid rgba(120,160,255,0.04); text-align:left; }
-  .topRow{ display:flex; gap:18px; align-items:center; }
-  .infoAvatar{ width:110px; height:110px; border-radius:12px; object-fit:cover; background:linear-gradient(180deg,#081223,#0d1b34); border:3px solid rgba(255,255,255,0.04); }
-  .infoTitle{ margin:0; font-size:1.8rem; }
-  .lead{ margin:6px 0 0 0; opacity:0.9; font-size:1rem; }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 20%, #0c1533, #050915);
+            font-family: "Inter", Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-  .content p{ color:rgba(230,240,255,0.95); line-height:1.6; font-size:1.02rem; }
-  .btnRow{ margin-top:18px; display:flex; gap:12px; flex-wrap:wrap; }
-  .btn{ padding:10px 14px; background:linear-gradient(180deg,var(--accent),var(--accent-2)); color:white; border-radius:10px; text-decoration:none; font-weight:700; box-shadow:0 8px 30px rgba(30,102,255,0.2); }
-  .btn:hover{ transform:translateY(-4px); transition:all .18s ease; }
-  .contact{ margin-top:16px; color:rgba(255,255,255,0.9); font-weight:600; }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: drift 10s linear infinite;
+        }
 
-  /* floating animation */
-  .infoCard{ animation: floaty 6s ease-in-out infinite; }
-  @keyframes floaty { 0%,100%{ transform:translateY(0);} 50% { transform:translateY(-14px);} }
+        @keyframes drift {
+            from { transform: translateY(0); }
+            to { transform: translateY(200vh); }
+        }
 
-  @media (max-width:720px){
-    .topRow{ flex-direction:column; align-items:center; text-align:center; }
-    .infoCard{ padding:20px; }
-  }
-</style>
+        .infoBox {
+            width: min(750px, 90%);
+            padding: 40px 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 18px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            box-shadow: 0 0 35px rgba(0,0,0,0.45);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-15px) translateX(10px); }
+        }
+
+        .planet {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #ffcf8b, #d47f34 40%, #5a2a82 85%);
+            box-shadow: 0 0 40px rgba(120,80,255,0.4), inset 0 0 30px rgba(0,0,0,0.45);
+            animation: planetSpin 22s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+
+        @keyframes planetSpin {
+            from { transform: rotate(0deg); }
+            to   { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            text-shadow: 0 0 25px rgba(255,255,255,0.25);
+            margin-top: 0;
+        }
+
+        p {
+            line-height: 1.6rem;
+            font-size: 1.15rem;
+            opacity: 0.9;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background: #1e66ff;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(30,102,255,0.4);
+            transition: 0.25s;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background: #4c82ff;
+            box-shadow: 0 0 25px rgba(76,130,255,0.55);
+        }
+
+        .discord {
+            margin-top: 20px;
+            opacity: 0.85;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="nebula"></div>
-
-  <!-- stars -->
-  <div class="starsLayer" id="starsLayer"></div>
-
-  <div class="infoWrap">
-    <div class="infoCard">
-      <div class="topRow">
-        <!-- local banner used as avatar tile (if you want a banner, use same path) -->
-        <img class="infoAvatar" src="/mnt/data/75fac34a-8cf0-4ecf-88bb-69b02aba6692.jpg" alt="Mopy avatar">
-        <div>
-          <h2 class="infoTitle">About Mopy Developmentz™</h2>
-          <div class="lead">Small studio — Roblox devs, UGC, websites, and UI</div>
-        </div>
-      </div>
-
-      <div class="content" style="margin-top:16px;">
-        <p><strong>What we offer</strong><br>
-        Mopy Developmentz™ provides fast, professional design and development for Roblox games and associated web experiences. We focus on high-quality scripting, polished UI, UGC art, and small-studio websites.</p>
-
-        <p><strong>Free subdomain service</strong><br>
-        We provide free developmentz.site subdomains for studios and creators. Free accounts include a small watermark. Premium subscriptions remove the watermark and add features like custom email forwarding and priority support.</p>
-
-        <p><strong>How to deploy</strong><br>
-        Use GitHub Pages or Vercel for hosting static sites. Add your project to the platform and point your subdomain to the platform's DNS or CNAME records (we can help with that).</p>
-
-        <div class="btnRow">
-          <a class="btn" href="index.html">Back to Home</a>
-          <a class="btn" href="https://www.roblox.com/communities/34697566/BIGGY-Studio#!/about" target="_blank">Roblox Group</a>
-        </div>
-
-        <div class="contact">Contact: <strong>Mopy_UGC</strong> on Discord • 📩 hello@developmentz.site</div>
-      </div>
-    </div>
-  </div>
 
 <script>
-  // star generator
-  (function(){
-    const layer = document.getElementById('starsLayer');
-    const count = 180;
-    for(let i=0;i<count;i++){
-      const s = document.createElement('div');
-      s.style.position='absolute';
-      s.style.left = Math.random()*100 + 'vw';
-      s.style.top = Math.random()*100 + 'vh';
-      const size = (Math.random()*2.5)+0.5;
-      s.style.width = size+'px';
-      s.style.height = size+'px';
-      s.style.background = 'white';
-      s.style.opacity = Math.random()*0.9;
-      s.style.borderRadius = '50%';
-      s.style.filter='blur(0.3px)';
-      s.style.animation = `floatStar ${6+Math.random()*10}s linear infinite`;
-      layer.appendChild(s);
+    function stars(count) {
+        for (let i = 0; i < count; i++) {
+            const s = document.createElement("div");
+            s.classList.add("star");
+            s.style.width = s.style.height = (Math.random() * 3 + 1) + "px";
+            s.style.left = Math.random() * 100 + "vw";
+            s.style.top = Math.random() * 100 + "vh";
+            s.style.animationDuration = (5 + Math.random() * 10) + "s";
+            s.style.opacity = Math.random();
+            document.body.appendChild(s);
+        }
     }
-    // small keyframes insertion
-    const style = document.createElement('style');
-    style.innerHTML = '@keyframes floatStar { from {transform:translateY(0);} to {transform:translateY(-200vh);} }';
-    document.head.appendChild(style);
-  })();
+    stars(170);
 </script>
+
+<div class="infoBox">
+
+    <div class="planet"></div>
+
+    <h1>What Is Mopy Developmentz™?</h1>
+
+    <p>
+        Mopy Developmentz™ is a high-quality Roblox studio focused on scripting,
+        world-building, UI, UGC, and web experiences.  
+        Everything is crafted with clean structure and a unique visual style.
+    </p>
+
+    <p>
+        We work on commissions, long-term projects, and group collaborations.
+        Our goal is to turn ideas into polished, professional results.
+    </p>
+
+    <a class="btn" href="index.html">Back Home</a>
+
+    <a class="btn"
+       href="https://www.roblox.com/communities/34697566/BIGGY-Studio#!/about"
+       target="_blank">
+       Roblox Group
+    </a>
+
+    <p class="discord">
+        📩 Contact on Discord: <strong>Mopy_UGC</strong>
+    </p>
+
+</div>
+
 </body>
 </html>
