@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explanation — Mopy Developmentz™</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at 50% 20%, #0b1a33, #050915);
+            overflow: hidden;
+            font-family: "Inter", Arial, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* FLOATING CONTAINER */
+        .float-box {
+            max-width: 750px;
+            padding: 35px 45px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            animation: drift 6s ease-in-out infinite;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-18px) translateX(12px); }
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.25);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+            opacity: 0.95;
+        }
+
+        /* BUTTON */
+        .btn {
+            margin-top: 25px;
+            display: inline-block;
+            padding: 14px 28px;
+            background: #1e66ff;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            box-shadow: 0 0 20px rgba(30,102,255,0.4);
+            transition: .25s;
+        }
+        .btn:hover {
+            background: #4c82ff;
+            box-shadow: 0 0 25px rgba(76,130,255,0.6);
+        }
+
+        /* STARS */
+        .stars {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: starMove 14s linear infinite;
+        }
+
+        @keyframes starMove {
+            from { transform: translateY(0); }
+            to { transform: translateY(200vh); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Stars -->
+    <script>
+        function stars(count) {
+            for (let i = 0; i < count; i++) {
+                const s = document.createElement("div");
+                s.className = "stars";
+                s.style.left = Math.random() * 100 + "vw";
+                s.style.top = Math.random() * 100 + "vh";
+                s.style.width = s.style.height = (Math.random() * 3) + "px";
+                s.style.animationDuration = (7 + Math.random() * 10) + "s";
+                document.body.appendChild(s);
+            }
+        }
+        stars(180);
+    </script>
+
+    <!-- FLOATING CONTENT -->
+    <div class="float-box">
+        <h1>About Developmentz.site</h1>
+
+        <p>
+            Developmentz.site is a **free subdomain provider** designed especially for  
+            <strong>game studios, developers, UGC creators, and designers</strong>  
+            who want a professional website without needing hosting.
+        </p>
+
+        <p>
+            It’s free to use, fast, and easy — though free sites come with a small watermark.  
+            If you want more features, we offer extremely **cheap subscriptions**.
+        </p>
+
+        <p>
+            You can deploy your site using Github Pages, Vercel, or any static host —  
+            and instantly connect it to your Developmentz.site subdomain.
+        </p>
+
+        <a class="btn"
+           href="https://www.roblox.com/communities/34697566/BIGGY-Studio#!/about"
+           target="_blank">
+           Visit Our Roblox Group
+        </a>
+
+        <p style="margin-top: 20px; opacity: 0.85;">
+            📩 Contact: <strong>Mopy_UGC</strong> on Discord
+        </p>
+    </div>
+
+</body>
+</html>
