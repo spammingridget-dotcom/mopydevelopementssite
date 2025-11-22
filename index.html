@@ -16,8 +16,8 @@
             color: white;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
@@ -68,8 +68,8 @@
         /* BUTTONS */
         .btn {
             display: inline-block;
-            padding: 14px 28px;
-            margin: 10px;
+            padding: 14px 30px;
+            margin: 8px;
             background: #1e66ff;
             border-radius: 12px;
             text-decoration: none;
@@ -86,7 +86,7 @@
         }
 
         .discord {
-            margin-top: 15px;
+            margin-top: 18px;
             opacity: 0.85;
         }
     </style>
@@ -94,15 +94,40 @@
 
 <body>
 
-    <!-- STARS -->
+    <!-- STARFIELD GENERATION -->
     <script>
         function createStars(num) {
             for (let i = 0; i < num; i++) {
-                const star = document.createElement("div");
-                star.className = "stars";
-                star.style.left = Math.random() * 100 + "vw";
-                star.style.top = Math.random() * 100 + "vh";
-                star.style.opacity = Math.random();
-                star.style.width = star.style.height = (Math.random() * 3) + "px";
-                star.style.animationDuration = (5 + Math.random() * 10) + "s";
-                document.body.appendChild(st
+                const s = document.createElement("div");
+                s.className = "stars";
+                s.style.left = Math.random() * 100 + "vw";
+                s.style.top = Math.random() * 100 + "vh";
+                s.style.opacity = Math.random();
+                s.style.width = s.style.height = (Math.random() * 3) + "px";
+                s.style.animationDuration = (5 + Math.random() * 10) + "s";
+                document.body.appendChild(s);
+            }
+        }
+        createStars(150);
+    </script>
+
+    <!-- FLOATING HOME BOX -->
+    <div class="float-box">
+        <h1>Mopy Developmentz™</h1>
+        <p>Professional Roblox development, scripting, UI, UGC and web services.</p>
+
+        <a class="btn" href="info.html">More Info</a>
+
+        <a class="btn"
+           href="https://www.roblox.com/communities/34697566/BIGGY-Studio#!/about"
+           target="_blank">
+           Roblox Group
+        </a>
+    </div>
+
+    <div class="discord">
+        📩 Contact: <strong>Mopy_UGC</strong> on Discord
+    </div>
+
+</body>
+</html>
