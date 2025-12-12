@@ -5,29 +5,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mopy Developmentz</title>
   <style>
-    body { margin:0; font-family: Arial, sans-serif; background:#0d0d0f; color:white; }
-    header { padding:40px; text-align:center; }
-    header img { width:120px; }
-    nav { text-align:center; margin-top:20px; }
-    nav a { margin:0 15px; color:#7ab8ff; text-decoration:none; font-weight:bold; }
-    section { padding:60px 20px; max-width:900px; margin:auto; }
-    .team, .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
-    .card { background:#11131a; padding:20px; border-radius:20px; box-shadow:0 0 20px rgba(0,0,0,0.4); }
-    footer { text-align:center; padding:40px; color:#999; }
-      /* Animations */
+    /* Reset & Body */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      /* Sexy animated gradient background */
+      background: linear-gradient(270deg, #0a1f3b, #003366, #0066cc, #0a1f3b);
+      background-size: 800% 800%;
+      animation: gradientWave 30s ease infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header */
+    header {
+      padding: 40px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    header img { width: 120px; }
+    nav { text-align: center; margin-top: 20px; }
+    nav a { margin: 0 15px; color: #7ab8ff; text-decoration: none; font-weight: bold; }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .team, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: rgba(17, 19, 26, 0.8);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      animation: fadeInUp 1s ease forwards;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 25px #4da3ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Animations */
     @keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
-    @keyframes glow { 0%{ box-shadow:0 0 10px #007bff;} 100%{ box-shadow:0 0 25px #4da3ff;} }
-    .card { animation: fadeInUp 1s ease forwards; transition: transform .3s ease; }
-    .card:hover { transform: translateY(-8px) scale(1.03); animation: glow 0.6s alternate infinite; }
-    header img { animation: fadeInUp 1s ease forwards; }
-    h1, h2 { animation: fadeInUp 1s ease forwards; }
+
+    header img, h1, h2 { animation: fadeInUp 1s ease forwards; }
   </style>
 </head>
 <body>
   <header>
     <img src="/logo.png" alt="Logo" />
     <h1>Mopy Developmentz</h1>
-    <p>Create Top-Quality Games & Expierences on roblox, with the best commision studio.</p>
+    <p>Create Top-Quality Games & Experiences on Roblox with the best commission studio.</p>
   </header>
 
   <nav>
@@ -40,16 +94,16 @@
 
   <section id="hero" style="text-align:center; padding:120px 20px;">
     <h2 style="font-size:2.5rem; margin-bottom:20px;">We Create Games</h2>
-    <p style="font-size:1.2rem; max-width:700px; margin:auto;">From concept to monetizing and making Six figures in only a few months. With Top-Quality Development and commisions, your game is ready in no time!</p>
+    <p style="font-size:1.2rem; max-width:700px; margin:auto;">From concept to monetizing and making six figures in only a few months. With top-quality development and commissions, your game is ready in no time!</p>
   </section>
 
   <section id="services">
     <h2>Our Services</h2>
     <div class="projects">
       <div class="card">Full Game From Concept To Finished Game</div>
-      <div class="card">Little Commisions</div>
+      <div class="card">Little Commissions</div>
       <div class="card">Making Enjoyable Weekly Updates</div>
-      <div class="card">Big Commisions</div>
+      <div class="card">Big Commissions</div>
     </div>
   </section>
 
@@ -68,17 +122,17 @@
     <div class="team">
       <div class="card">mopy_ugc | CFO & CEO</div>
       <div class="card">kobani | Operations Manager</div>
-      <div class="card">Keyaan | Commision Officer & Scripter</div>
-      <div class="card"> CX | UI/UX - Designer</div>
-      <div class="card">Etern | 3D Modeler </div>
-      <div class="card">Astral | 3D Modeler </div>
-      <div class="card">We are Also Hiring New devs ! (coming soon) </div>
+      <div class="card">Keyaan | Commission Officer & Scripter</div>
+      <div class="card">CX | UI/UX - Designer</div>
+      <div class="card">Etern | 3D Modeler</div>
+      <div class="card">Astral | 3D Modeler</div>
+      <div class="card">We are Also Hiring New Devs! (coming soon)</div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Contact On Discord : MOPY_UGC or | KeyaanGoesBoom </p>
+    <p>Contact On Discord: MOPY_UGC or KeyaanGoesBoom</p>
   </section>
 
   <footer>
@@ -88,7 +142,10 @@
   <script>
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.style.opacity = 1; entry.target.style.transform = 'translateY(0)'; }
+        if(entry.isIntersecting){ 
+          entry.target.style.opacity = 1; 
+          entry.target.style.transform = 'translateY(0)'; 
+        }
       });
     },{threshold:0.1});
 
