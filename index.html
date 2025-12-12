@@ -1,180 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mopy Developmentz™</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-            background: radial-gradient(circle at 50% 20%, #0b1a33, #050915);
-            font-family: "Inter", Arial, sans-serif;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        /* STARFIELD */
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.8;
-            animation: drift 10s linear infinite;
-        }
-
-        @keyframes drift {
-            from { transform: translateY(0); }
-            to { transform: translateY(200vh); }
-        }
-
-        /* FLOATING PANEL */
-        .panel {
-            padding: 35px 45px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 0 30px rgba(0,0,0,0.4);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) translateX(0px); }
-            50% { transform: translateY(-18px) translateX(12px); }
-        }
-
-        /* RINGED PLANET */
-        .planet-container {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 25px auto;
-        }
-
-        .planet {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffcf8b, #d47f34 40%, #5a2a82 85%);
-            box-shadow: 0 0 40px rgba(120,80,255,0.4), inset 0 0 25px rgba(0,0,0,0.45);
-            animation: spinPlanet 26s linear infinite;
-            position: relative;
-            z-index: 2;
-        }
-
-        @keyframes spinPlanet {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .ring {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 260px;
-            height: 80px;
-            margin-left: -130px;
-            margin-top: -40px;
-            border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(100,150,255,0.45), rgba(50,70,150,0.1));
-            transform: rotateX(65deg);
-            filter: blur(1px);
-            animation: spinRing 18s linear infinite;
-            z-index: 1;
-        }
-
-        @keyframes spinRing {
-            from { transform: rotateX(65deg) rotate(0deg); }
-            to   { transform: rotateX(65deg) rotate(360deg); }
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 3rem;
-            text-shadow: 0 0 25px rgba(255,255,255,0.25);
-        }
-
-        p {
-            font-size: 1.1rem;
-            opacity: 0.85;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* BUTTONS */
-        .btn {
-            display: inline-block;
-            padding: 14px 28px;
-            margin: 10px;
-            background: #1e66ff;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            font-size: 1.1rem;
-            font-weight: 600;
-            box-shadow: 0 0 20px rgba(30,102,255,0.4);
-            transition: 0.25s;
-        }
-
-        .btn:hover {
-            background: #4c82ff;
-            box-shadow: 0 0 25px rgba(76,130,255,0.55);
-        }
-
-        .contact {
-            margin-top: 15px;
-            opacity: 0.85;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Portfolio</title>
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#0d0d0f; color:white; }
+    header { padding:40px; text-align:center; }
+    header img { width:120px; }
+    nav { text-align:center; margin-top:20px; }
+    nav a { margin:0 15px; color:#7ab8ff; text-decoration:none; font-weight:bold; }
+    section { padding:60px 20px; max-width:900px; margin:auto; }
+    .team, .projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px; }
+    .card { background:#11131a; padding:20px; border-radius:20px; box-shadow:0 0 20px rgba(0,0,0,0.4); }
+    footer { text-align:center; padding:40px; color:#999; }
+      /* Animations */
+    @keyframes fadeInUp { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
+    @keyframes glow { 0%{ box-shadow:0 0 10px #007bff;} 100%{ box-shadow:0 0 25px #4da3ff;} }
+    .card { animation: fadeInUp 1s ease forwards; transition: transform .3s ease; }
+    .card:hover { transform: translateY(-8px) scale(1.03); animation: glow 0.6s alternate infinite; }
+    header img { animation: fadeInUp 1s ease forwards; }
+    h1, h2 { animation: fadeInUp 1s ease forwards; }
+  </style>
 </head>
-
 <body>
+  <header>
+    <img src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAewAAAG3CAYAAAB2Y2ZUAAAAAXNSR0IArs4c6QA...Xd93/45f1WnXHb92VSVjTH+SWOEL5oAAhTsdHeElU66IRDFJCQCdStKooAUklyk" alt="Logo" />
+    <h1>BlueStack Development</h1>
+    <p>Building performant software, polished visuals, and scalable digital experiences.</p>
+  </header>
 
-<script>
-    /* STAR GENERATOR */
-    function stars(count) {
-        for (let i = 0; i < count; i++) {
-            const s = document.createElement("div");
-            s.classList.add("star");
-            s.style.width = s.style.height = (Math.random() * 3 + 1) + "px";
-            s.style.left = Math.random() * 100 + "vw";
-            s.style.top = Math.random() * 100 + "vh";
-            s.style.animationDuration = (5 + Math.random() * 10) + "s";
-            s.style.opacity = Math.random();
-            document.body.appendChild(s);
-        }
-    }
-    stars(180);
-</script>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-<div class="panel">
+  <section id="hero" style="text-align:center; padding:120px 20px;">
+    <h2 style="font-size:2.5rem; margin-bottom:20px;">We Create Digital Products</h2>
+    <p style="font-size:1.2rem; max-width:700px; margin:auto;">From concept to deployment, we build cutting‑edge applications, immersive visuals, and powerful technology for brands, creators, and businesses.</p>
+  </section>
 
-    <div class="planet-container">
-        <div class="ring"></div>
-        <div class="planet"></div>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="projects">
+      <div class="card">Web Development</div>
+      <div class="card">Game / App Development</div>
+      <div class="card">Branding & Visuals</div>
+      <div class="card">UI/UX & Prototyping</div>
     </div>
+  </section>
 
-    <h1>Mopy Developmentz™</h1>
-    <p>High-quality Roblox Developement</p>
-
-    <a class="btn" href="info.html">More Info</a>
-
-    <a class="btn" href="https://www.roblox.com/communities/34697566/BIGGY-Studio#!/about" target="_blank">
-        Roblox Group
-    </a>
-
-    <div class="contact">
-        📩 Contact on Discord: <strong>Mopy_UGC</strong>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="projects">
+      <div class="card">Client Dashboard Platform</div>
+      <div class="card">Unity Mobile Game</div>
+      <div class="card">Brand Identity Pack</div>
+      <div class="card">Interactive 3D Showcase</div>
     </div>
+  </section>
 
-</div>
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team">
+      <div class="card">Lead Developer</div>
+      <div class="card">Designer</div>
+      <div class="card">Project Manager</div>
+    </div>
+  </section>
 
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email us at: studio@bluestack.dev</p>
+  </section>
+
+  <footer>
+    &copy; 2025 BlueStack Development. All rights reserved.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.style.opacity = 1; entry.target.style.transform = 'translateY(0)'; }
+      });
+    },{threshold:0.1});
+
+    document.querySelectorAll('section').forEach(sec=>{
+      sec.style.opacity = 0;
+      sec.style.transform = 'translateY(40px)';
+      sec.style.transition = 'all .8s ease';
+      observer.observe(sec);
+    });
+  </script>
 </body>
 </html>
